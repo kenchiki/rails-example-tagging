@@ -1,0 +1,23 @@
+%h1 Listing taggings
+
+%table
+  %thead
+    %tr
+      %th Article
+      %th Tag
+      %th
+      %th
+      %th
+
+  %tbody
+    - @taggings.each do |tagging|
+      %tr
+        %td= tagging.article
+        %td= tagging.tag
+        %td= link_to 'Show', tagging
+        %td= link_to 'Edit', edit_tagging_path(tagging)
+        %td= link_to 'Destroy', tagging, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tagging', new_tagging_path
