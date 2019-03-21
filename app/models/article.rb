@@ -17,7 +17,8 @@ class Article < ApplicationRecord
       end
     end
 
-    # through: :taggingsしているので中間テーブルのtagginsも自動で作成される
+    # through: :taggingsしているので中間テーブルのtaggingsも自動で作成される
+    # tentative_tagsに含まれないtaggingsは削除される
     self.tags.replace(tentative_tags)
   end
 
