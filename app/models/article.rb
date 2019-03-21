@@ -3,8 +3,6 @@ class Article < ApplicationRecord
   has_many :tags, through: :taggings
   accepts_nested_attributes_for :tags
 
-  has_many :searched_tags, ->(tags) { where(name: tags) }, through: :taggings, class_name: 'Tag'
-
   validates :title, presence: true
 
   MAX_TAGS = 4
